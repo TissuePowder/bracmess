@@ -1,0 +1,19 @@
+# session
+
+SESSION_SECRET=4c333e47eb2759081dabe82c5f444012e57fc740f57c4b09dc9aa69859e7eccf
+
+
+# database
+
+DB=postgres
+DB_HOST=localhost
+DB_PORT=5432
+DB_NAME=yourdb
+DB_USER=user123
+DB_PASSWORD=yourpassword789
+
+
+# server
+
+HOST='localhost'
+PORT=4000

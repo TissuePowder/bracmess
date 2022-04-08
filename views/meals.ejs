@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/milligram.min.css' />
+    <script type="text/javascript" src="javascripts/meals.js" defer></script>
+    <style>
+      .button-red {
+        background-color: #ff4136;
+      }
+      .button-green {
+        background-color: #2ecc40;
+      }
+      .bar {
+        background-color: #d1d1d1;
+        border-radius: 0.4rem;
+        min-height: 2.5em;
+        text-align: center;
+        line-height: 2.5em;
+        color: black;
+      }
+      .bar-green {
+        color: green;
+      }
+      .bar-red {
+        color: red;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+
+        <form method="GET" action="/meals" style="margin: 20px 0 5px 0">
+          <input type="date" name="date" value="<%= date %>" style="width:80%">
+          <button type="submit" class="float-right" id="btn-query">Query for date</button>
+        </form>
+
+      <% let dt = new Date(date).toDateString(); %>
+      <div class="bar">
+        Showing meal list for <strong><%= dt %></strong>
+        <% if (errorMessage.length > 0) { %>
+          <div class="bar-red"><%= errorMessage[0] %></div>
+        <% } else if (successMessage.length > 0) { %>
+          <div class="bar-green"><%= successMessage[0] %></div>
+        <% } %>
+      </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 40%;">Name</th>
+          <th style="width: 20%;">Meal 0.5</th>
+          <th style="width: 20%;">Meal 01</th>
+          <th style="width: 20%;">Meal 02</th>
+        </tr>
+      </thead>
+      <% for(meal of meals) { %>
+        <% let text = ['OFF', 'ON'] %>
+        <tbody>
+          <tr id="<%= meal.id %>">
+            <td><%= meal.name %></td>
+            <td><button name="meal_half" value="<%= meal.meal_half %>"><%= text[meal.meal_half] %></button></td>
+            <td><button name="meal_1" value="<%= meal.meal_1 %>"><%= text[meal.meal_1] %></button></td>
+            <td><button name="meal_2" value="<%= meal.meal_2 %>"><%= text[meal.meal_2] %></button></td>
+          </tr>
+        </tbody>
+      <% } %>
+    </table>
+    </div>
+  </body>
+</html>
+
