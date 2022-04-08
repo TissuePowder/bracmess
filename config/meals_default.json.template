@@ -1,0 +1,20 @@
+[
+    {
+        "name": "John",
+        "meal_half": 1,
+        "meal_1": 0,
+        "meal_2": 1
+    },
+    {
+        "name": "Jessica",
+        "meal_half": 1,
+        "meal_1": 1,
+        "meal_2": 1
+    },
+    {
+        "name": "David",
+        "meal_half": 1,
+        "meal_1": 1,
+        "meal_2": 1
+    }
+]
