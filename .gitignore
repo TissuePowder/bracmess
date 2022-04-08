@@ -1,0 +1,5 @@
+nohup.*
+*.log
+.env
+node_modules/
+config/meals_default.json
