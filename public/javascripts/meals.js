@@ -1,12 +1,3 @@
-let buttons = document.querySelectorAll("button");
-for (let button of buttons) {
-  if (button.textContent === "ON") {
-    button.classList.add("button-green");
-  } else if (button.textContent === "OFF") {
-    button.classList.add("button-red");
-  }
-}
-
 let datePicker = document.querySelector('input[type=date]');
 datePicker.addEventListener('input', e => {
   if (datePicker.value) {
