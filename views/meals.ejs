@@ -4,7 +4,7 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="stylesheets/picnic.min.css">
     <script type="text/javascript" src="javascripts/meals.js" defer></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width">
 
     <style>
       button {
@@ -14,12 +14,6 @@
         flex-direction: column;
         max-width: 800px;
         margin: auto;
-      }
-      .bar-green {
-        color: green;
-      }
-      .bar-red {
-        color: red;
       }
     </style>
 
@@ -35,11 +29,11 @@
 
       <div class="card" style="text-align: center;">
 
-          Showing meal list for <%= dt %>
+          <p style="padding: 0;">Showing meal list for <b><%= dt %></b></p>
           <% if (errorMessage.length > 0) { %>
-            <div class="bar-red"><%= errorMessage[0] %></div>
+            <p style="padding: 0;color: red;"><%= errorMessage[0] %></p>
           <% } else if (successMessage.length > 0) { %>
-            <div class="bar-green"><%= successMessage[0] %></div>
+            <p style="padding: 0;color: green;"><%= successMessage[0] %></p>
           <% } %>
 
       </div>
