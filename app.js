@@ -28,7 +28,21 @@ app.enable("trust proxy");
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(logger('short'));
+const logFormat = [
+  ':remote-addr',
+  '-',
+  ':remote-user',
+  '[:date[web]]',
+  '":method :url HTTP/:http-version"',
+  ':status',
+  ':res[content-length]',
+  ':referrer',
+  '":user-agent"',
+  '-',
+  ':response-time ms'
+]
+
+app.use(logger(logFormat.join(' ')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
