@@ -43,7 +43,10 @@ const logFormat = [
   ':response-time ms'
 ]
 
-app.use(logger(logFormat.join(' ')));
+app.use(logger(logFormat.join(' '), {
+  skip: (req, res) => req.originalUrl === '/health'? true : false
+}));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
