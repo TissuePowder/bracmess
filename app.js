@@ -19,6 +19,7 @@ db.authenticate()
 
 const indexRouter = require('./routes/index');
 const mealsRouter = require('./routes/meals');
+const healthRouter = require('./routes/health');
 
 require('dotenv').config();
 
@@ -61,6 +62,7 @@ app.use(locals);
 
 app.use('/', indexRouter);
 app.use('/meals', mealsRouter);
+app.use('/health', healthRouter);
 
 setInterval(() => {
   delete require.cache[require.resolve('./config/meals_default.json')];
