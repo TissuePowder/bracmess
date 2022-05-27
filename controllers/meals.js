@@ -1,13 +1,13 @@
 const date = require('date-and-time');
 const Meals = require('../models/meals');
 
-exports.getMeals = async (req, res, next) => {
+exports.getMeals = (req, res, next) => {
     let dt = date.format(new Date(), 'YYYY-MM-DD');
     if (req.query.date) {
         dt = date.format(new Date(req.query.date), 'YYYY-MM-DD');
     }
     //console.log(req.query.date);
-    await Meals.findAll({
+    Meals.findAll({
         where: {
             date: dt
         },
@@ -24,14 +24,14 @@ exports.getMeals = async (req, res, next) => {
 };
 
 
-exports.postMeals = async (req, res, next) => {
+exports.postMeals = (req, res, next) => {
     let today = date.format(new Date(), 'YYYY-MM-DD');
     let requestedDate = date.format(new Date(req.body.date), 'YYYY-MM-DD');
     if (requestedDate < today) {
         req.flash('error', "You are not allowed to edit previous days' meals without the manager's approval");
         return res.status(403).redirect(`/meals?date=${req.body.date}`);
     }
-    await Meals.update(
+    Meals.update(
         {
             //date: req.body.date,
             meal_1: req.body.meal_1,
