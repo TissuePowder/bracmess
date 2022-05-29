@@ -1,19 +1,23 @@
 # session
 
-SESSION_SECRET=4c333e47eb2759081dabe82c5f444012e57fc740f57c4b09dc9aa69859e7eccf
+SESSION_SECRET='yoursecret'
 
 
 # database
 
-DB=postgres
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=yourdb
-DB_USER=user123
-DB_PASSWORD=yourpassword789
+DB='postgres'
+DB_HOST='localhost'
+DB_PORT='5432'
+DB_NAME='bracmess'
+DB_USER='dbadmin'
+DB_PASSWORD='yourpassword'
 
+
+# application
+
+DEV_MODE='development'
 
 # server
 
 HOST='localhost'
-PORT=4000
+PORT='4000'

@@ -15,11 +15,11 @@ tableElm.addEventListener("click", (e) => {
 
     let mealId = document.createElement("input");
     mealId.name = "id";
-    mealId.value = e.target.parentElement.parentElement.id;
+    mealId.value = e.target.id;
     formElm.appendChild(mealId);
 
     let mealInput = document.createElement("input");
-    mealInput.name = e.target.name;
+    mealInput.name = "quantity"
     mealInput.value = +!parseInt(e.target.value, 10);
     formElm.appendChild(mealInput);
 

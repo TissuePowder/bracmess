@@ -42,20 +42,24 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th>Meal 0.5</th>
-            <th>Meal 01</th>
-            <th>Meal 02</th>
+            <% for(let mealType of mealTypesForDate) { %>
+              <th><%= mealType.mealType.name %></th>
+            <% } %>
           </tr>
         </thead>
         <tbody>
-          <% for(meal of meals) { %>
-            <% let text = ['OFF', 'ON'] %>
-            <% let btnColor = ['error', 'success'] %>
-              <tr id="<%= meal.id %>">
-                <td><%= meal.name %></td>
-                <td><button class="<%= btnColor[meal.meal_half] %>" name="meal_half" value="<%= meal.meal_half %>"><%= text[meal.meal_half] %></button></td>
-                <td><button class="<%= btnColor[meal.meal_1] %>" name="meal_1" value="<%= meal.meal_1 %>"><%= text[meal.meal_1] %></button></td>
-                <td><button class="<%= btnColor[meal.meal_2] %>" name="meal_2" value="<%= meal.meal_2 %>"><%= text[meal.meal_2] %></button></td>
+          <% for(let tenant of tenants) { %>
+            <% let text = ['OFF', 'ON', 'ON+'] %>
+            <% let btnColor = ['error', 'success', 'warning'] %>
+              <tr id="<%= tenant.hashid %>">
+                <td><%= tenant.name %></td>
+                <% for(let meal of tenant.meals) { %>
+                  <% if(meal.quantity < 0) meal.quantity = 0 %>
+                  <% let c = meal.quantity > 1 ? 2 : meal.quantity %>
+                  <td><button class="<%= btnColor[c] %>" id="<%= meal.hashid %>" value="<%= meal.quantity %>">
+                    <%= text[c] %>
+                  </button></td>
+                <% } %>
               </tr>
           <% } %>
         </tbody>

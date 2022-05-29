@@ -1,22 +1,35 @@
 {
   "name": "bracmess",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "Meal management system for a mess",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon app.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TissuePowder/bracmess.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TissuePowder/bracmess/issues"
+  },
+  "homepage": "https://github.com/TissuePowder/bracmess#readme",
   "dependencies": {
+    "@casl/ability": "^5.4.3",
     "connect-flash": "^0.1.1",
-    "cookie-parser": "~1.4.4",
-    "date-and-time": "^2.3.0",
-    "debug": "~2.6.9",
-    "dotenv": "^16.0.0",
-    "ejs": "~2.6.1",
-    "express": "~4.16.1",
-    "express-session": "^1.17.2",
-    "http-errors": "~1.6.3",
-    "morgan": "~1.9.1",
-    "pg": "^8.7.3",
-    "sequelize": "^6.18.0"
+    "date-and-time": "^2.3.1",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "http-errors": "^2.0.0",
+    "knex": "^2.1.0",
+    "morgan": "^1.10.0",
+    "objection": "^3.0.1",
+    "objection-authorize": "^5.0.2",
+    "objection-hashid": "^3.0.2",
+    "pg": "^8.7.3"
   }
 }
